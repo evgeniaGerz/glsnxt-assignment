@@ -1,33 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import glsnextLogo from './assets/glsnxt-logo.svg'
 import './App.css'
+import Modal from './Modal'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+    <div className='page-wrapper'>
+      <div className='container'>
+        <a href="https://www.glsnxt.com/" target="_blank">
+          <img src={glsnextLogo} className="logo" alt="glsnxt logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => setIsModalVisible(true)}>
+          open modal
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {isModalVisible && <Modal onModalClose={() => setIsModalVisible(false)} />}
+
+    </div>
     </>
   )
 }
