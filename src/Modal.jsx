@@ -1,8 +1,22 @@
+import { useEffect } from "react"
 import { createPortal } from "react-dom"
 import "./Modal.css"
 import closeIcon from "./assets/times-solid.svg"
 
 function Modal({ onModalClose, title, content }) {
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        onModalClose()
+      }
+    }
+    window.addEventListener("keydown", handleEscape)
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape)
+    }
+  }, [])
+
   return createPortal(
     <>
       <div onClick={onModalClose} className="modal-container">
