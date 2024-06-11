@@ -50,10 +50,15 @@ function Modal({ onModalClose, isOpen, title, content }) {
           aria-modal="true"
           onClick={(e) => e.stopPropagation()}
           ref={modalRef}
+          aria-labelledby="my-modal-label"
         >
           <header>
             <h2>{title}</h2>
-            <button className="close-icon" onClick={onModalClose}>
+            <button
+              className="close-icon"
+              onClick={onModalClose}
+              aria-label="Close"
+            >
               <img width={30} src={closeIcon} />
             </button>
           </header>
@@ -61,7 +66,9 @@ function Modal({ onModalClose, isOpen, title, content }) {
             <p>{content}</p>
           </main>
           <footer>
-            <button onClick={onModalClose}>Close</button>
+            <button onClick={onModalClose} type="button" aria-label="Close">
+              Close
+            </button>
             <button>Save</button>
           </footer>
         </div>
