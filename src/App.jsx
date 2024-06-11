@@ -2,6 +2,7 @@ import { useState } from "react"
 import glsnextLogo from "./assets/glsnxt-logo.svg"
 import "./App.css"
 import Modal from "./Modal"
+import { TEXTS } from "./text.constants"
 
 function App() {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -20,7 +21,11 @@ function App() {
         open modal
       </button>
       {isModalVisible && (
-        <Modal onModalClose={() => setIsModalVisible(false)} />
+        <Modal
+          title={TEXTS.newModal.title}
+          content={TEXTS.newModal.body}
+          onModalClose={() => setIsModalVisible(false)}
+        />
       )}
     </div>
   )

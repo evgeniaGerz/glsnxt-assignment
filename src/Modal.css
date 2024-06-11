@@ -38,8 +38,8 @@ title {
   text-align: center
 }
 
-main {
-  /* min-height: 40% */
+main p {
+font-weight: 400
 }
 
 footer {
