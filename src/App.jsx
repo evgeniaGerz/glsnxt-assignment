@@ -8,7 +8,7 @@ function App() {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   return (
-    <div className="app">
+    <div className="app" aria-hidden={isModalVisible}>
       {/* <div className="container">
         <a href="https://www.glsnxt.com/" target="_blank">
           <img src={glsnextLogo} className="logo" alt="glsnxt logo" />
