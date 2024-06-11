@@ -6,7 +6,12 @@ function Modal({ onModalClose, title, content }) {
   return createPortal(
     <>
       <div onClick={onModalClose} className="modal-container">
-        <div className="modal" role="dialog" aria-modal="true">
+        <div
+          className="modal"
+          role="dialog"
+          aria-modal="true"
+          onClick={(e) => e.stopPropagation()}
+        >
           <header>
             <h2>{title}</h2>
             <button className="close-icon" onClick={onModalClose}>
