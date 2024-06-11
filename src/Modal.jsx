@@ -36,9 +36,10 @@ function Modal({ onModalClose, isOpen, title, content }) {
       return () => {
         window.removeEventListener("keydown", handleEscape)
         window.removeEventListener("keydown", handleTab)
+        // TODO: restoring the focus on the " open modal" button
       }
     }
-  }, [isOpen])
+  }, [isOpen, onModalClose])
 
   return createPortal(
     <>
