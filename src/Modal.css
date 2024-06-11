@@ -1,23 +1,21 @@
 .modal-container {
-  z-index: 999;
+  /* z-index: 999; */
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  /* width: 100vw;
-  height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #1818b4;
-  /* opacity: 0.9 */
+  opacity: 0.9
 }
 
 .modal {
   width: 50%;
   height: 50%;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: #fff;
   padding: 2em;
   display: flex;
