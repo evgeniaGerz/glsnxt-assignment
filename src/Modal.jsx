@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import "./Modal.css"
 import closeIcon from "./assets/times-solid.svg"
 
 function Modal({ onModalClose, isOpen, title, content }) {
+  const [isSaving, setIsSaving] = useState(false)
   const modalRef = useRef(null)
 
   useEffect(() => {
@@ -41,6 +42,13 @@ function Modal({ onModalClose, isOpen, title, content }) {
     }
   }, [isOpen, onModalClose])
 
+  const handleSave = () => {
+    setIsSaving(true)
+    setTimeout(() => {
+      onModalClose()
+    }, 1500)
+  }
+
   return createPortal(
     <>
       <div onClick={onModalClose} className="modal-container">
@@ -69,7 +77,9 @@ function Modal({ onModalClose, isOpen, title, content }) {
             <button onClick={onModalClose} type="button" aria-label="Close">
               Close
             </button>
-            <button>Save</button>
+            <button onClick={handleSave}>
+              {isSaving ? "Saving..." : "Save"}
+            </button>
           </footer>
         </div>
       </div>
