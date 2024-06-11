@@ -1,21 +1,44 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import "./Modal.css"
 import closeIcon from "./assets/times-solid.svg"
 
-function Modal({ onModalClose, title, content }) {
+function Modal({ onModalClose, isOpen, title, content }) {
+  const modalRef = useRef(null)
+
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === "Escape") {
-        onModalClose()
+    if (isOpen) {
+      const modalElements = modalRef.current
+      const focusableElements = modalElements.querySelectorAll(
+        'button, [tabindex]:not([tabindex="-1"])' // later other element can be added - [href], input, select, textarea,
+      )
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+
+      const handleEscape = (e) => {
+        if (e.key === "Escape") {
+          onModalClose()
+        }
+      }
+
+      const handleTab = (e) => {
+        if (e.key === "Tab") {
+          if (document.activeElement === lastElement) {
+            e.preventDefault()
+            firstElement.focus()
+          }
+        }
+      }
+
+      window.addEventListener("keydown", handleEscape)
+      window.addEventListener("keydown", handleTab)
+
+      return () => {
+        window.removeEventListener("keydown", handleEscape)
+        window.removeEventListener("keydown", handleTab)
       }
     }
-    window.addEventListener("keydown", handleEscape)
-
-    return () => {
-      window.removeEventListener("keydown", handleEscape)
-    }
-  }, [])
+  }, [isOpen])
 
   return createPortal(
     <>
@@ -25,6 +48,7 @@ function Modal({ onModalClose, title, content }) {
           role="dialog"
           aria-modal="true"
           onClick={(e) => e.stopPropagation()}
+          ref={modalRef}
         >
           <header>
             <h2>{title}</h2>

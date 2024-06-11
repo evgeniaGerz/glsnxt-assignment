@@ -25,6 +25,7 @@ function App() {
           title={TEXTS.newModal.title}
           content={TEXTS.newModal.body}
           onModalClose={() => setIsModalVisible(false)}
+          isOpen={isModalVisible}
         />
       )}
     </div>
