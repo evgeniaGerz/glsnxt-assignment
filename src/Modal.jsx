@@ -78,10 +78,10 @@ function Modal({ onModalClose, isOpen, title, content }) {
             <p>{content}</p>
           </main>
           <footer>
-            <button onClick={onModalClose} type="button" aria-label="Close">
+            <button onClick={onModalClose} type="button">
               Close
             </button>
-            <button onClick={handleSave}>
+            <button onClick={handleSave} type="button" aria-live="polite">
               {isSaving ? "Saving..." : "Save"}
             </button>
           </footer>

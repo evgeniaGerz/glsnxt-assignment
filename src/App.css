@@ -1,18 +1,16 @@
-
-  
-
 .app {
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
   width: 100vw;
+  position: relative;
 }
 
 .container {
   position: fixed;
-  width: 30vh;
   top: 0;
+  left: 0;
 }
 
 .logo {
@@ -21,22 +19,14 @@
   will-change: filter;
 }
 
-button {
-  border-radius: 8px;
-  border: 2px solid blue;
-
-}
-
 .openModal-button {
-  color: blue;
+  color: #061ab1;
   font-size: 2.1rem;
   font-weight: 600;
   padding: .7rem 1.5rem .9rem;
-
 }
 
 .openModal-button:hover {
-  border: 2px solid #af0cc8;
-  color: #af0cc8
-
+  border: 2px solid #FF2827;
+  color: #FF2827
 }

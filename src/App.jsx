@@ -9,11 +9,11 @@ const App = () => {
 
   return (
     <div className="app" aria-hidden={isModalVisible}>
-      {/* <div className="container">
+      <div className="container">
         <a href="https://www.glsnxt.com/" target="_blank">
           <img src={glsnextLogo} className="logo" alt="glsnxt logo" />
-        </a>∏
-      </div> */}
+        </a>
+      </div>
       <button
         className="openModal-button"
         onClick={() => setIsModalVisible(true)}

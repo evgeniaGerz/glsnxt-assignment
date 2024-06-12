@@ -1,3 +1,4 @@
+
 .modal-container {
   /* z-index: 999; */
   position: fixed;
@@ -8,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(24, 24, 180, 0.9);
+  background-color: rgba(24, 24, 180, 0.9);
 }
 
 .modal {
@@ -23,7 +24,7 @@
 }
 
 header {
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid #061ab1;
   position: relative;
   padding-bottom: 1em;
   display: flex;
@@ -36,19 +37,21 @@ title {
 }
 
 main {
-  overflow-y: scroll;
-
+  padding: 1em 0;
+  overflow-y: auto;
+  flex: 1;
 }
 
 main p {
-font-weight: 400
+font-weight: 400;
 }
 
 footer {
-  border-top: 1px solid blue;
+  border-top: 1px solid #061ab1;
   position: relative;
   padding-top: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
