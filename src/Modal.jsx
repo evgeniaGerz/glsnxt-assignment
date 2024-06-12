@@ -24,9 +24,18 @@ function Modal({ onModalClose, isOpen, title, content, triggerButtonRef }) {
 
       const handleTab = (e) => {
         if (e.key === "Tab") {
-          if (document.activeElement === lastElement) {
-            e.preventDefault()
-            firstElement.focus()
+          if (e.shiftKey) {
+            // Handle Shift+Tab
+            if (document.activeElement === firstElement) {
+              e.preventDefault()
+              lastElement.focus()
+            }
+          } else {
+            // Handle Tab
+            if (document.activeElement === lastElement) {
+              e.preventDefault()
+              firstElement.focus()
+            }
           }
         }
       }
