@@ -11,7 +11,7 @@ function Modal({ onModalClose, isOpen, title, content }) {
     if (isOpen) {
       const modalElements = modalRef.current
       const focusableElements = modalElements.querySelectorAll(
-        'button, [tabindex]:not([tabindex="-1"])' // later other element can be added - [href], input, select, textarea,
+        'button:not([disabled]), [tabindex]:not([tabindex="-1"])' // later other element can be added - [href], input, select, textarea, a,
       )
       const firstElement = focusableElements[0]
       const lastElement = focusableElements[focusableElements.length - 1]
