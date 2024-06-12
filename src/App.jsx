@@ -4,7 +4,7 @@ import "./App.css"
 import Modal from "./Modal"
 import { TEXTS } from "./text.constants"
 
-function App() {
+const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   return (

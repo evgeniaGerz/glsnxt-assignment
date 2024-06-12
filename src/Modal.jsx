@@ -51,7 +51,11 @@ function Modal({ onModalClose, isOpen, title, content }) {
 
   return createPortal(
     <>
-      <div onClick={onModalClose} className="modal-container">
+      <div
+        onClick={onModalClose}
+        className="modal-container"
+        aria-label="backdrop"
+      >
         <div
           className="modal"
           role="dialog"
