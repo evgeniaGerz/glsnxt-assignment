@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import "./Modal.css"
 import closeIcon from "./assets/times-solid.svg"
+import PropTypes from "prop-types"
 
 function Modal({ onModalClose, isOpen, title, content, triggerButtonRef }) {
   const [isSaving, setIsSaving] = useState(false)
@@ -39,6 +40,9 @@ function Modal({ onModalClose, isOpen, title, content, triggerButtonRef }) {
           }
         }
       }
+
+      // Focus on the first focusable element when the modal opens
+      firstElement?.focus()
 
       window.addEventListener("keydown", handleEscape)
       window.addEventListener("keydown", handleTab)
@@ -105,6 +109,14 @@ function Modal({ onModalClose, isOpen, title, content, triggerButtonRef }) {
     </>,
     document.body
   )
+}
+
+Modal.propTypes = {
+  onModalClose: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  triggerButtonRef: PropTypes.object.isRequired,
 }
 
 export default Modal
