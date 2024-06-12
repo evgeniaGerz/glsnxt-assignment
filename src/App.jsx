@@ -1,19 +1,14 @@
-import { useState } from "react"
-import glsnextLogo from "./assets/glsnxt-logo.svg"
+import { useRef, useState } from "react"
 import "./App.css"
 import Modal from "./Modal"
 import { TEXTS } from "./text.constants"
 
 const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const openModalButtonRef = useRef(null)
 
   return (
     <div className="app" aria-hidden={isModalVisible}>
-      <div className="container">
-        <a href="https://www.glsnxt.com/" target="_blank">
-          <img src={glsnextLogo} className="logo" alt="glsnxt logo" />
-        </a>
-      </div>
       <button
         className="openModal-button"
         onClick={() => setIsModalVisible(true)}
