@@ -12,6 +12,7 @@ const App = () => {
       <button
         className="openModal-button"
         onClick={() => setIsModalVisible(true)}
+        ref={openModalButtonRef}
       >
         open modal
       </button>
