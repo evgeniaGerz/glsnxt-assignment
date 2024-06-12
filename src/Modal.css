@@ -8,8 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1818b4;
-  opacity: 0.9
+  background-color: rgb(24, 24, 180, 0.9);
 }
 
 .modal {
@@ -34,6 +33,11 @@ header {
 
 title {
   text-align: center
+}
+
+main {
+  overflow-y: scroll;
+
 }
 
 main p {
