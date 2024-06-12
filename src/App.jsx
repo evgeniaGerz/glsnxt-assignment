@@ -21,6 +21,7 @@ const App = () => {
           content={TEXTS.newModal.body}
           onModalClose={() => setIsModalVisible(false)}
           isOpen={isModalVisible}
+          triggerButtonRef={openModalButtonRef}
         />
       )}
     </div>

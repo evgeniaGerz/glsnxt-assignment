@@ -3,7 +3,7 @@ import { createPortal } from "react-dom"
 import "./Modal.css"
 import closeIcon from "./assets/times-solid.svg"
 
-function Modal({ onModalClose, isOpen, title, content }) {
+function Modal({ onModalClose, isOpen, title, content, triggerButtonRef }) {
   const [isSaving, setIsSaving] = useState(false)
   const modalRef = useRef(null)
 
@@ -34,13 +34,19 @@ function Modal({ onModalClose, isOpen, title, content }) {
       window.addEventListener("keydown", handleEscape)
       window.addEventListener("keydown", handleTab)
 
+      const triggerButton = triggerButtonRef.current
+
       return () => {
         window.removeEventListener("keydown", handleEscape)
         window.removeEventListener("keydown", handleTab)
-        // TODO: restoring the focus on the " open modal" button
+
+        // restoring the focus on the " open modal" button
+        if (triggerButton) {
+          triggerButton.focus()
+        }
       }
     }
-  }, [isOpen, onModalClose])
+  }, [isOpen, onModalClose, triggerButtonRef])
 
   const handleSave = () => {
     setIsSaving(true)
