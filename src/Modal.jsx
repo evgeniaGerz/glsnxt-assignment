@@ -53,7 +53,7 @@ function Modal({ onModalClose, isOpen, title, content, triggerButtonRef }) {
         window.removeEventListener("keydown", handleEscape)
         window.removeEventListener("keydown", handleTab)
 
-        // restoring the focus on the " open modal" button
+        // restoring the focus on the "open modal" button after closing
         if (triggerButton) {
           triggerButton.focus()
         }
@@ -61,6 +61,7 @@ function Modal({ onModalClose, isOpen, title, content, triggerButtonRef }) {
     }
   }, [isOpen, onModalClose, triggerButtonRef])
 
+  // Added for showing user a 'Saving...' action on click
   const handleSave = () => {
     setIsSaving(true)
     setTimeout(() => {
