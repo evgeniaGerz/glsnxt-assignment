@@ -13,6 +13,7 @@ const App = () => {
         className="openModal-button"
         onClick={() => setIsModalVisible(true)}
         ref={openModalButtonRef}
+        aria-haspopup="dialog"
       >
         open modal
       </button>
